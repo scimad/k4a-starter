@@ -87,6 +87,9 @@ static void write_point_cloud(const char *file_name, const k4a_image_t point_clo
     ofs << "property float x" << std::endl;
     ofs << "property float y" << std::endl;
     ofs << "property float z" << std::endl;
+    ofs << "property uchar red" << std::endl;
+    ofs << "property uchar green" << std::endl;
+    ofs << "property uchar blue" << std::endl;
     ofs << "end_header" << std::endl;
     ofs.close();
 
@@ -99,7 +102,9 @@ static void write_point_cloud(const char *file_name, const k4a_image_t point_clo
         }
 
         ss << (float)point_cloud_data[i].xyz.x << " " << (float)point_cloud_data[i].xyz.y << " "
-           << (float)point_cloud_data[i].xyz.z << std::endl;
+           << (float)point_cloud_data[i].xyz.z << " "
+           << 233 << " " << 123 << " " << 100
+           << std::endl;
     }
 
     std::ofstream ofs_text(file_name, std::ios::out | std::ios::app);
